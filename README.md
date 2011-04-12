@@ -1,0 +1,1 @@
+Solutions to some Google Code Jam problems in Ruby.
