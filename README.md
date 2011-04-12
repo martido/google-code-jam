@@ -1,1 +1,1 @@
-Solutions to some Google Code Jam problems in Ruby.
+My solutions (unless otherwise noted in the comments) to some Google Code Jam problems in Ruby. Sometimes I might not have come up with the most efficient way of doing things, but it is a good opportunity to practice some Ruby.
