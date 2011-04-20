@@ -9,6 +9,7 @@ My solutions (unless otherwise noted in the comments) to some Google Code Jam pr
 
 #### Code Jam 2009
  * [A. Alien Language][#2009-Q-A] (Qualification)
+ * [A. All Your Base][#2009-1C-A] (1C)
 
 #### Code Jam 2010
  * [A. Rotate][#2010-1A-A] (1A)
@@ -19,6 +20,7 @@ My solutions (unless otherwise noted in the comments) to some Google Code Jam pr
 [#A2010-Q-B]: http://code.google.com/codejam/contest/dashboard?c=351101#s=p1
 [#2008-1A-A]: http://code.google.com/codejam/contest/dashboard?c=32016#s=p0
 [#2009-Q-A]: http://code.google.com/codejam/contest/dashboard?c=90101#s=p0
+[#2009-1C-A]: http://code.google.com/codejam/contest/dashboard?c=189252#s=p0
 [#2010-1A-A]: http://code.google.com/codejam/contest/dashboard?c=544101#s=p0
 [#2010-1B-A]: http://code.google.com/codejam/contest/dashboard?c=635101#s=p0
 [#2010-1C-A]: http://code.google.com/codejam/contest/dashboard?c=619102#s=p0
