@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class StoreCredit
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         test_cases = input.readline.to_i
@@ -22,17 +22,17 @@ class StoreCredit
   end
 
   def buy(store_credit, available_items, prices)
-    
+
     sorted_prices = prices.sort
-    
+
     # Discard items which are more expensive than store_credit.
     tail = available_items - 1
     while sorted_prices[tail] > store_credit do
       tail -= 1
     end
-    
+
     cart = []
-    
+
     0.upto(tail) do |head|
       h = sorted_prices[head]
       t = sorted_prices[tail]
@@ -48,18 +48,18 @@ class StoreCredit
         break
       end
     end
-    
+
     # Lower index comes first.
     cart.sort!
   end
-  
+
   def buy_naive(store_credit, available_items, prices)
     buy = []
     0.upto(prices.length - 1) do |i|
       stop = false
       1.upto(prices.length - 1) do |j|
         next if i == j
-        if prices[i] + prices[j] == store_credit  
+        if prices[i] + prices[j] == store_credit
           buy << i + 1 << j + 1
           stop = true
           break

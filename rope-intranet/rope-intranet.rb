@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class RopeIntranet
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         test_cases = input.readline.to_i
@@ -22,7 +22,7 @@ class RopeIntranet
       end
     end
   end
-  
+
   def intersection_points(wires)
     count = 0
     0.upto(wires.length - 1) do |i|

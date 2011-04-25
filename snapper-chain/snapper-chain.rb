@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class SnapperChain
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         test_cases = input.readline.to_i
@@ -20,7 +20,7 @@ class SnapperChain
       end
     end
   end
-  
+
   def light_state(n, k)
     # ON/OFF states of a snapper can be viewed as a sequence of
     # bits (1 = ON, 0 = OFF). If you run through an example you
@@ -34,7 +34,7 @@ class SnapperChain
       :OFF
     end
   end
-  
+
 end
 
 problem = SnapperChain.new

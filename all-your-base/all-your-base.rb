@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class AllYourBase
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         test_cases = input.readline.to_i
@@ -18,7 +18,7 @@ class AllYourBase
       end
     end
   end
-  
+
   def translate(symbols)
     lookup = {}
     symbols.each_char do |s|
@@ -30,7 +30,7 @@ class AllYourBase
           else lookup[s] = size
         end
       end
-    end    
+    end
     result = 0
     base = lookup.size > 1 ? lookup.size : 2
     symbols.split(//).each_with_index do |s,i|

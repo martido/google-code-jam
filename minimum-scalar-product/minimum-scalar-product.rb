@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class MinimumScalarProduct
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         test_cases = input.readline.to_i
@@ -30,7 +30,7 @@ class MinimumScalarProduct
     end
     sp
   end
-  
+
   def scalar_product_naive(v1, v2)
     min = nil
     v1.permutation.to_a.each do |p1|

@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class Rotate
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         test_cases = input.readline.to_i
@@ -16,12 +16,12 @@ class Rotate
           1.upto(n) do
             board << input.readline.chomp.split(//)
           end
-          
+
           # According to the Google solution you don't actually need
-          # to rotate the board; shifting all pieces to the right is 
-          # eqivalent to rotating the board and letting the pieces 
+          # to rotate the board; shifting all pieces to the right is
+          # eqivalent to rotating the board and letting the pieces
           # drop down.
-          
+
           rotate_in_place(board, n)
           drop_in_place(board, n)
           winner = find_winner(board, n, k)
@@ -30,7 +30,7 @@ class Rotate
       end
     end
   end
-  
+
   # Rotate board 90 degrees clockwise (using additional space).
   def rotate(board, n)
     r = []
@@ -42,7 +42,7 @@ class Rotate
     end
     r
   end
-  
+
   # Rotate board 90 degrees clockwise (in-place).
   # See: http://goo.gl/voIJu
   def rotate_in_place(board, n)
@@ -55,8 +55,8 @@ class Rotate
         board[j][n-i-1] = tmp
       end
     end
-  end  
-  
+  end
+
   # Drop pieces in-place one column at a time.
   # Probably results in cache misses if the matrix is large enough.
   def drop_in_place(board, n)
@@ -64,7 +64,7 @@ class Rotate
       drop = 0
       (n-1).downto(0) do |i| # Rows
         if board[i][j] == '.'
-          drop += 1 
+          drop += 1
           next
         end
         if drop > 0
@@ -74,7 +74,7 @@ class Rotate
       end
     end
   end
-  
+
   def shift_in_place(board, n)
     0.upto(n-1) do |i| # Rows
       shift = 0
@@ -90,22 +90,22 @@ class Rotate
       end
     end
   end
-  
+
   def find_winner(board, n, k)
     blue_wins = false
     red_wins = false
     0.upto(n-1) do |i| #Rows
       0.upto(n-1) do |j| # Columns
         next if board[i][j] == '.'
-        
+
         color = board[i][j]
-        
+
         # No need to check if one of the players has alreay won.
         next if (blue_wins and color == 'B') or (red_wins and color == 'R')
-        
-        # Check in 4 directions for each slot, but only if there's 
+
+        # Check in 4 directions for each slot, but only if there's
         # enough space in the particular direction.
-        
+
         # Check horizonally right.
         if j + k <= n
           x = 1
@@ -117,7 +117,7 @@ class Rotate
             end
           end
         end
-        
+
         # Check vertically down.
         if i + k <= n
           x = 1
@@ -129,7 +129,7 @@ class Rotate
             end
           end
         end
-        
+
         # Check diagonally down & right.
         if i + k <= n && j + k <= n
           x = 1
@@ -141,7 +141,7 @@ class Rotate
             end
           end
         end
-        
+
         # Check diagonally down & left.
         if i + k <= n && j - k >= -1
           x = 1
@@ -155,13 +155,13 @@ class Rotate
         end
       end
     end
-    
+
     return :Blue if blue_wins and !red_wins
     return :Red if !blue_wins and red_wins
     return :Both if blue_wins and red_wins
     return :Neither if !blue_wins and !red_wins
   end
-  
+
   def print_board(board)
     board.each { |row| p row }
   end

@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class AlienLanguage
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         length, words, test_cases = input.readline.split(/ /).map { |s| s.to_i }
@@ -22,7 +22,7 @@ class AlienLanguage
       end
     end
   end
-  
+
   def interpret(pattern)
     matches = 0
     regexp = to_regexp(pattern)
@@ -31,11 +31,11 @@ class AlienLanguage
     end
     matches
   end
-  
+
   def to_regexp(pattern)
     pattern.gsub(/\((.*?)\)/, '[\1]')
   end
-  
+
   # Solution taken from http://www.intellitures.com/blog/?p=200
   def interpret_improved(pattern)
     matches = 0
@@ -54,7 +54,7 @@ class AlienLanguage
     end
     matches
   end
-  
+
   def tokenize(pattern)
     tokens = []
     pattern.scan(/[a-z]|\(.*?\)/) do |t|

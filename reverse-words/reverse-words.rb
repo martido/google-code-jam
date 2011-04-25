@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class ReverseWords
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         input.each_with_index do |line,index|
@@ -17,7 +17,7 @@ class ReverseWords
       end
     end
   end
-  
+
 end
 
 problem = ReverseWords.new

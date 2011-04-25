@@ -5,8 +5,8 @@
 require 'benchmark'
 
 class FairWarning
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         test_cases = input.readline.to_i
@@ -19,13 +19,13 @@ class FairWarning
       end
     end
   end
-  
+
   def compute_apocalypse(slarsecs)
     # The difference between two consecutive numbers in the array
     # must be a multiple of the largest possible T we are looking
     # for. This is because (a + y) % T = 0 and (b + y) % T = 0.
     # It then follows that |(a + y) - (b + y)| % T = 0. T is then
-    # equal to the greatest common divisor of all the differences 
+    # equal to the greatest common divisor of all the differences
     # of two consecutive numbers in the array.
     diff = slarsecs.each_cons(2).map { |a,b| (a-b).abs }
     # The GCD of 3 or more numbers can be computed by using
@@ -39,7 +39,7 @@ class FairWarning
       gcd - slarsecs.first % gcd
     end
   end
-  
+
   # Greatest common divisor using Euclid's algorithm.
   def gcd(a,b)
     return a if b == 0

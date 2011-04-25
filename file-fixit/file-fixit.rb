@@ -6,35 +6,35 @@ require 'benchmark'
 require 'set'
 
 class FileFixit
-  
-  def solve(dataset)    
+
+  def solve(dataset)
     File.open(dataset, 'r') do |input|
       File.open(dataset.sub(/\.in/, '.out'), 'w') do |output|
         test_cases = input.readline.to_i
         1.upto(test_cases) do |test_case|
           n,m = input.readline.split(/ /).map { |s| s.to_i }
-          
+
           existing_paths = []
           1.upto(n) do
             existing_paths << input.readline.chomp
           end
-          
+
           new_paths = []
           1.upto(m) do
             new_paths << input.readline.chomp
           end
-          
+
           ops = mkdir(existing_paths, new_paths)
           output << %Q{Case ##{test_case}: #{ops}\n}
         end
       end
     end
   end
-  
+
   def mkdir(existing_paths, new_paths)
     lookup = Set.new
     existing_paths.each do |path|
-      to_components(path).each { |c| lookup.add?(c) }      
+      to_components(path).each { |c| lookup.add?(c) }
     end
     ops = 0
     new_paths.each do |path|
@@ -47,7 +47,7 @@ class FileFixit
     end
     ops
   end
-  
+
   def to_components(path)
     paths = []
     pos = nil
