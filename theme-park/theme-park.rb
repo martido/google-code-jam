@@ -69,7 +69,7 @@ class ThemePark
           break
         end
         people += groups[head]
-        head = head + 1 >= n ? 0 : head + 1
+        head = inc(head, n)
       end
     end
     total_profit
@@ -90,10 +90,16 @@ class ThemePark
           break
         end
         people += groups[head]
-        head = head + 1 > n - 1 ? 0 : head + 1
+        head = inc(head, n)
       end
     end
     profit
+  end
+
+  # i = current index
+  # n = length of array
+  def inc(i, n)
+    (i + 1) % n
   end
 end
 
