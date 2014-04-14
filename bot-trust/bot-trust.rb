@@ -34,29 +34,29 @@ class BotTrust
         1.upto(test_cases) do |test_case|
           line = input.readline.split(/ /).drop(1)
 
-          seq = []
+          actions = []
           line.each_with_index do |elem, index|
-            seq.push(Action.new(elem, line[index + 1].to_i)) if index % 2 == 0
+            actions.push(Action.new(elem, line[index + 1].to_i)) if index % 2 == 0
           end
 
-          time = compute_min_time(seq)
+          time = compute_min_time(actions)
           output << %Q{Case ##{test_case}: #{time}\n}
         end
       end
     end
   end
 
-  def compute_min_time(seq)
+  def compute_min_time(actions)
 
     time = 0
     pos_o = 1
     pos_b = 1
 
-    until seq.empty?
+    until actions.empty?
 
-      next_action = seq.first
-      next_action_o = seq.find { |elem| elem.name == 'O' }
-      next_action_b = seq.find { |elem| elem.name == 'B' }
+      next_action = actions.first
+      next_action_o = actions.find { |elem| elem.name == 'O' }
+      next_action_b = actions.find { |elem| elem.name == 'B' }
 
       # puts "Next action: #{next_action}"
       # puts "Next action O: #{next_action_o}"
@@ -66,7 +66,7 @@ class BotTrust
         if pos_o == next_action_o.pos
           if next_action.name == 'O'
             # puts "O pushes button #{next_action_o.pos}"
-            seq.shift
+            actions.shift
           else
             # puts "O stays at button #{next_action_o.pos}"
           end
@@ -83,7 +83,7 @@ class BotTrust
         if pos_b == next_action_b.pos
           if next_action.name == 'B'
             # puts "B pushes button #{next_action_b.pos}"
-            seq.shift
+            actions.shift
           else
             # puts "B stays at button #{next_action_b.pos}"
           end
