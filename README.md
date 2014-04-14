@@ -1,5 +1,8 @@
 My solutions (unless otherwise noted in the comments) to some Google Code Jam problems in Ruby. Sometimes I might not have come up with the most efficient way of doing things, but it is a good opportunity to practice some Ruby.
 
+#### Code Jam 2011
+ * [A. Bot Trust][#2011-Q-A] (Qualification)
+
 #### Code Jam 2010
  * [A. Snapper Chain][#2010-Q-A] (Qualification)
  * [B. Fair Warning][#2010-Q-B] (Qualification)
@@ -30,3 +33,4 @@ My solutions (unless otherwise noted in the comments) to some Google Code Jam pr
 [#2010-1A-A]: http://code.google.com/codejam/contest/dashboard?c=544101#s=p0
 [#2010-1B-A]: http://code.google.com/codejam/contest/dashboard?c=635101#s=p0
 [#2010-1C-A]: http://code.google.com/codejam/contest/dashboard?c=619102#s=p0
+[#2011-Q-A]: http://code.google.com/codejam/contest/975485/dashboard
